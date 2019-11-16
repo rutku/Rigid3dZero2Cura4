@@ -6,8 +6,23 @@
 	
     "overrides": {
         "machine_name": { "default_value": "Rigid3d Zero 2" },
-		"machine_start_gcode": {"default_value": "G21\nG28 ; Home extruder\nM420 S1 ; Enable MBL\nM107 ; Turn off fan\nG91 ; Relative positioning\nG1 Z5 F180;\nG1 X30 Y30 F3000;\nG1 Z-5 F180;\nG90 ; Absolute positioning\nM82 ; Extruder in absolute mode\nG92 E0 ; Reset extruder position\n"},
+		"machine_start_gcode": {"default_value": "M203 X1000.00 Y1000.00 Z3.00 E40.00 ;Setup machine max feedrate\n\nM205 X8.00 Y8.00 Z0.30 E5.00 ;Setup Jerk\nG21\nG28 ; Home extruder\nM420 S1 ; Enable MBL\nM107 ; Turn off fan\nG91 ; Relative positioning\nG1 Z5 F180;\nG1 X30 Y30 F3000;\nG1 Z-5 F180;\nG90 ; Absolute positioning\nM82 ; Extruder in absolute mode\nG92 E0 ; Reset extruder position\n"},
         "machine_end_gcode": {"default_value": "G1 X0 Y180 ; Get extruder out of way.\nM107 ; Turn off fan\nG91 ; Relative positioning\nG0 Z20 ; Lift extruder up\nT0\nG1 E-1 ; Reduce filament pressure\nM104 T0 S0 ; Turn extruder heater off\nG90 ; Absolute positioning\nG92 E0 ; Reset extruder position\nM140 S0 ; Disable heated bed\nM84 ; Turn steppers off\n"},
+		
+		"machine_max_feedrate_x": { "value": 1000 },
+        "machine_max_feedrate_y": { "value": 1000 },
+        "machine_max_feedrate_z": { "value": 3 },
+        "machine_max_feedrate_e": { "value": 40 },
+		
+		"machine_max_acceleration_x": { "value": 1000 },
+        "machine_max_acceleration_y": { "value": 1000 },
+        "machine_max_acceleration_z": { "value": 100 },
+        "machine_max_acceleration_e": { "value": 10000 },
+        "machine_acceleration": { "value": 1000 },
+
+        "machine_max_jerk_xy": { "value": 8.0 },
+        "machine_max_jerk_z": { "value": 0.3 },
+        "machine_max_jerk_e": { "value": 5.0 },
 
         "machine_width": { "default_value": 200 },
         "machine_depth": { "default_value": 200 },
